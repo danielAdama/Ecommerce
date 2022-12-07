@@ -53,16 +53,17 @@ namespace Ecommerce.Mvc.Core.Domains.Accounts.CQRS.Commands.Login
                     var passwordCheck = await _userManager.CheckPasswordAsync(user, request.Password);
                     if (!passwordCheck)
                     {
-                        _logger.LogInformation("LOGIN > User entered a wrong password while comparing password");
+                        _logger.LogInformation("LOGIN > User entered a wrong password");
                         return new BaseResponse(false, "Wrong password. Please try again");
                     }
 
-                    var result = await _signInManager.PasswordSignInAsync(user, request.Password, false, true);
+                    var result = await _signInManager.PasswordSignInAsync(user, request.Password, false, false);
                     if (!result.Succeeded)
                     {
                         _logger.LogInformation("LOGIN > User is not sign in");
                         return new BaseResponse(false, "Wrong credentials. Please try again");
                     }
+                    return new BaseResponse(true, "Operation successful");
                 }
                 return new BaseResponse(false, "User not found. Please sign up");
             }

@@ -28,10 +28,10 @@ namespace Ecommerce.Mvc.Areas.Accounts.Controllers.Api
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginCommand command)
         {
-            return Ok(new { Status = true, Message = "Working", Data = command });
-            //         var response = await _mediator.Send(command);
-            //if (!response.Status) return BadRequest(response);
-            //return Ok(response);
+            //return Ok(new { Status = true, Message = "Working", Data = command });
+            var response = await _sender.Send(command);
+            if (!response.Status) return BadRequest(response);
+            return Ok(response);
         }
     }
 }

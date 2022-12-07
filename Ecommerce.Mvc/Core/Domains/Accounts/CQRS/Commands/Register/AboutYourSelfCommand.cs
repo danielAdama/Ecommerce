@@ -85,6 +85,7 @@ namespace Ecommerce.Mvc.Core.Domains.Accounts.CQRS.Commands.Register
                         LastName = request.LastName,
                         Email = email,
                         UserName = email,
+                        //CountryId = countryOfOrder.Id
                         TimeCreated = DateTime.UtcNow,
                         TimeUpdated = DateTime.UtcNow
                     };

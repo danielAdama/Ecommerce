@@ -14,6 +14,7 @@ namespace Ecommerce.Infrastructure.Data.Entities
         public string MiddleName { get; set; }
         public string LastName { get; set; }
         public long RoleId { get; set; }
+        //public long? CountryId { get; set; }
         public DateTimeOffset TimeCreated { get; set; }
         public DateTimeOffset TimeUpdated { get; set; }
     }

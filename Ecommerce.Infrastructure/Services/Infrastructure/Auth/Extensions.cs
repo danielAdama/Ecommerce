@@ -34,8 +34,8 @@ namespace Ecommerce.Infrastructure.Services.Infrastructure.Auth
                 "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
                 options.User.RequireUniqueEmail = true;
 
-
-                options.SignIn.RequireConfirmedEmail = true;
+                // Set to false to prevent confirming email before login
+                options.SignIn.RequireConfirmedEmail = false;
             })
             .AddEntityFrameworkStores<EcommerceDbContext>()
             .AddDefaultTokenProviders();
