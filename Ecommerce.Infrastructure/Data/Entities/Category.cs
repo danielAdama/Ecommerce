@@ -18,10 +18,10 @@ namespace Ecommerce.Infrastructure.Data.Entities
 
     public class Product : BaseEntity
     {
+        public string? ProductImage { get; set; }
 #nullable disable
         public string Name { get; set; }
         public double Price { get; set; }
-        public string ProductImage { get; set; }
         
 
         // One-to-one relationship: Each item belong to a category

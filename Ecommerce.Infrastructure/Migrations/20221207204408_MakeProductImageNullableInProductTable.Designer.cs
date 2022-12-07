@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Ecommerce.Infrastructure.Migrations
 {
     [DbContext(typeof(EcommerceDbContext))]
-    [Migration("20221207203227_AddCategoryTable")]
-    partial class AddCategoryTable
+    [Migration("20221207204408_MakeProductImageNullableInProductTable")]
+    partial class MakeProductImageNullableInProductTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

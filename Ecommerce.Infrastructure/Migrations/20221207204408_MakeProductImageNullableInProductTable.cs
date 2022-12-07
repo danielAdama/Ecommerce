@@ -4,7 +4,7 @@
 
 namespace Ecommerce.Infrastructure.Migrations
 {
-    public partial class AddCategoryTable : Migration
+    public partial class MakeProductImageNullableInProductTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
