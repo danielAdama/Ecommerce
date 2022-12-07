@@ -29,7 +29,7 @@ namespace Ecommerce.Infrastructure.Data.Entities
             public ProductTypeEnum ProductType { get; set; }
             public ICollection<Seller> Sellers { get; set; }
 
-            public long CategoryId { get; set; }
+            //public long CategoryId { get; set; }
             // One-to-one relationship: Each item belong to a category
             // public Category Category { get; set; }
 
