@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\LoginV.css"
     },
     {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\css\\RegisterV.css",
+      "PackagePath": "staticwebassets\\css\\RegisterV.css"
+    },
+    {
       "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

@@ -64,38 +64,39 @@ namespace Ecommerce.Mvc.Core.Domains.Accounts.CQRS.Commands.Register
                     return new BaseResponse(false, "Email address is already in use");
                 }
 
-                if (request.Password.Length != request.ConfirmPassword.Length && request.Password != request.ConfirmPassword)
+                if (request.Password.Length != request.ConfirmPassword.Length || request.Password != request.ConfirmPassword)
                 {
                     _logger.LogInformation($"AboutYourSelfCommand => incorrect password");
-                    return new BaseResponse(false, $"Incorrect Passwor");
+                    return new BaseResponse(false, $"Incorrect Password");
                 }
                 using var transaction = await _context.Database.BeginTransactionAsync(cancellationToken);
                 try
                 {
-                    var countryOfOrder = new Order
-                    {
-                        Country = request.Country
-                    };
+                    //var countryOfOrder = new Order
+                    //{
+                    //    Country = request.Country
+                    //};
+                    //await _context.Orders.AddAsync(countryOfOrder, cancellationToken);
+                    //await _context.SaveChangesAsync(cancellationToken);
+
                     var newUser = new EcommerceUser
                     {
                         FirstName = request.FirstName,
                         LastName = request.LastName,
                         Email = email,
+                        UserName = email,
                         TimeCreated = DateTime.UtcNow,
                         TimeUpdated = DateTime.UtcNow
                     };
-                    //await _context.EcommerceUsers.AddAsync(newUser, cancellationToken);
-                    //await _context.SaveChangesAsync(cancellationToken);
-
-                    await _context.Orders.AddAsync(countryOfOrder, cancellationToken);
-                    await _context.SaveChangesAsync(cancellationToken);
 
                     var newUserResponse = await _userManager.CreateAsync(newUser, request.Password);
 
-                    if (newUserResponse.Succeeded)
+                    if (!newUserResponse.Succeeded)
                     {
-                        await _userManager.AddToRoleAsync(newUser, UserRoles.User);
+                        _logger.LogInformation($"AboutYourSelfCommand => Password too short, requires non-alphabet");
+                        return new BaseResponse(false, $"Password too short, requires non-alphabet. It do not meet the requirements");
                     }
+                    //await _userManager.AddToRoleAsync(newUser, UserRoles.User);
 
                     await transaction.CommitAsync(cancellationToken);
                     return new BaseResponse(true, "Operation successful");

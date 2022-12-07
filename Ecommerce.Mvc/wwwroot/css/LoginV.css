@@ -19,31 +19,31 @@ body {
     border-radius: 12px;
 }
 
-    .login h1 {
-        font-size: 36px;
-        margin-bottom: 25px;
-    }
+.login h1 {
+    font-size: 36px;
+    margin-bottom: 25px;
+}
 
-    .login p {
-        font-size: 10px;
-        margin-block-end: 10px;
-    }
+.login p {
+    font-size: 10px;
+    margin-block-end: 10px;
+}
 
-    .login a {
-        font-size: 10px;
-        margin-left: 250px;
-    }
+.login a {
+    font-size: 10px;
+    margin-left: 250px;
+}
 
-    .login form {
-        font-size: 12px;
-    }
+.login form {
+    font-size: 12px;
+}
 
-        .login form .form-group {
-            margin-bottom: 5px
-        }
+.login form .form-group {
+    margin-bottom: 5px
+}
 
-        .login form input[type="submit"] {
-            font-size: 11px;
-            margin-top: 5px;
-            margin-right: 15px;
-        }
+.login form input[type="submit"] {
+    font-size: 11px;
+    margin-top: 5px;
+    margin-right: 15px;
+}

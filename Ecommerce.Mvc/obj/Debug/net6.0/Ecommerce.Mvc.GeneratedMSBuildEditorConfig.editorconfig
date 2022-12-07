@@ -24,6 +24,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudHNcVmlld3NcSWRlbnRpdHlcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/DELL/Desktop/programming/softwareEng/Ecommerce/Ecommerce/Ecommerce.Mvc/Areas/Accounts/Views/Identity/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjb3VudHNcVmlld3NcSWRlbnRpdHlcUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/DELL/Desktop/programming/softwareEng/Ecommerce/Ecommerce/Ecommerce.Mvc/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -38,6 +42,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/DELL/Desktop/programming/softwareEng/Ecommerce/Ecommerce/Ecommerce.Mvc/Views/Shared/Accounts/_LoginLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFjY291bnRzXF9Mb2dpbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/Desktop/programming/softwareEng/Ecommerce/Ecommerce/Ecommerce.Mvc/Views/Shared/Accounts/_RegisterLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFjY291bnRzXF9SZWdpc3RlckxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/DELL/Desktop/programming/softwareEng/Ecommerce/Ecommerce/Ecommerce.Mvc/Views/Shared/Error.cshtml]

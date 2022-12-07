@@ -18,10 +18,10 @@ namespace Ecommerce.Mvc.Areas.Accounts.Controllers.Api
         [HttpPost]
         public async Task<IActionResult> AboutYourSelf([FromBody] AboutYourSelfCommand command)
         {
-            return Ok(new { Status = true, Message = "Working", Data = command });
-            //var response = await _sender.Send(command);
-            //if (!response.Status) return BadRequest(response);
-            //return Ok(response);
+            //return Ok(new { Status = true, Message = "Working", Data = command });
+            var response = await _sender.Send(command);
+            if (!response.Status) return BadRequest(response);
+            return Ok(response);
         }
 
         [Route("Login")]
