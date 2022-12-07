@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce.Mvc\\Ecommerce.Mvc.csproj": {}
+    "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce-new\\Ecommerce.Mvc\\Ecommerce.Mvc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce.Infracstructure\\Ecommerce.Infracstructure.csproj": {
+    "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce-new\\Ecommerce.Infrastructure\\Ecommerce.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce.Infracstructure\\Ecommerce.Infracstructure.csproj",
-        "projectName": "Ecommerce.Infracstructure",
-        "projectPath": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce.Infracstructure\\Ecommerce.Infracstructure.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce-new\\Ecommerce.Infrastructure\\Ecommerce.Infrastructure.csproj",
+        "projectName": "Ecommerce.Infrastructure",
+        "projectPath": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce-new\\Ecommerce.Infrastructure\\Ecommerce.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce.Infracstructure\\obj\\",
+        "outputPath": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce-new\\Ecommerce.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -52,15 +52,19 @@
               "target": "Package",
               "version": "[6.0.11, )"
             },
+            "Microsoft.AspNetCore.Mvc.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.11, )"
-            },
-            "Microsoft.Extensions.Configuration.Json": {
-              "target": "Package",
-              "version": "[6.0.0, )"
             },
             "Microsoft.Extensions.Http": {
               "target": "Package",
@@ -73,10 +77,6 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL.Design": {
               "target": "Package",
               "version": "[1.1.0, )"
-            },
-            "SendGrid": {
-              "target": "Package",
-              "version": "[9.28.1, )"
             }
           },
           "imports": [
@@ -99,14 +99,14 @@
         }
       }
     },
-    "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce.Mvc\\Ecommerce.Mvc.csproj": {
+    "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce-new\\Ecommerce.Mvc\\Ecommerce.Mvc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce.Mvc\\Ecommerce.Mvc.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce-new\\Ecommerce.Mvc\\Ecommerce.Mvc.csproj",
         "projectName": "Ecommerce.Mvc",
-        "projectPath": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce.Mvc\\Ecommerce.Mvc.csproj",
+        "projectPath": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce-new\\Ecommerce.Mvc\\Ecommerce.Mvc.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce.Mvc\\obj\\",
+        "outputPath": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce-new\\Ecommerce.Mvc\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -127,8 +127,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce.Infracstructure\\Ecommerce.Infracstructure.csproj": {
-                "projectPath": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce.Infracstructure\\Ecommerce.Infracstructure.csproj"
+              "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce-new\\Ecommerce.Infrastructure\\Ecommerce.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce-new\\Ecommerce.Infrastructure\\Ecommerce.Infrastructure.csproj"
               }
             }
           }

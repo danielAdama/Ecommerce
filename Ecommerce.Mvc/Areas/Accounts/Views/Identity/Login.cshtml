@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/Accounts/_LoginLayout.cshtml";
+}
+
+<div class="login">
+    <div class = "text-center">
+      @*  @if (TempData["RegisteredUser"] != null)
+        {
+            <h5>@TempData["RegisteredUser"]</h5>
+        }
+        <h1>Log In</h1>
+        @if (Convert.ToBoolean(TempData["LoggedUser"]) == false && Convert.ToBoolean(TempData["TriedOnce"] == "yes"))
+        {
+            <p>Username or Password not matched, please log in again or register</p>
+            <a class="" asp-action="Register" asp-controller="Accounts">register</a>
+        }*@
+        <hr />
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group was-validated">
+                <label asp-for="UserName" class="control-label">Username</label>
+                <input type="text" asp-for="UserName" class="form-control" required>
+                <span asp-validation-for="UserName" class="text-danger"></span>
+                <div class="invalid-feedback">
+                    Please enter your Username
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="PassWord" class="control-label">Password</label>
+                <input type="password" asp-for="PassWord" class="form-control" required>
+                <span asp-validation-for="PassWord" class="text-danger"></span>
+                <div class="invalid-feedback">
+                    Please enter your Password
+                </div>
+            </div>
+            <div class="form-group form-check">
+                <input type="submit" value="Login" class="btn btn-success w-100" />
+            </div>
+        </form>
+    </div>
+</div>
