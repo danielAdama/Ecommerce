@@ -19,15 +19,6 @@ namespace Ecommerce.Mvc.Areas.Accounts.Controllers
         {
             return View();
         }
-
-        public ActionResult ForgotPassword()
-        {
-            return View();
-        }
-
-        public ActionResult ResetPassword()
-        {
-            return View();
-        }
     }
+
 }
