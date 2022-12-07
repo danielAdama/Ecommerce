@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Ecommerce.Infrastructure.Data.Entities.Category;
+//using static Ecommerce.Infrastructure.Data.Entities.Category;
 
 namespace Ecommerce.Infrastructure.Services.Infrastructure.Persistence
 {
@@ -27,7 +27,7 @@ namespace Ecommerce.Infrastructure.Services.Infrastructure.Persistence
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
-        public DbSet<Seller> Sellers { get; set; }
+        //public DbSet<Seller> Sellers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

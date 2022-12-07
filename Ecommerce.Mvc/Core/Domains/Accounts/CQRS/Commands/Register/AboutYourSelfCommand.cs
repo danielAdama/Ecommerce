@@ -8,7 +8,7 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using System.Security.Principal;
-using static Ecommerce.Infrastructure.Data.Entities.Category;
+//using static Ecommerce.Infrastructure.Data.Entities.Category;
 
 namespace Ecommerce.Mvc.Core.Domains.Accounts.CQRS.Commands.Register
 {

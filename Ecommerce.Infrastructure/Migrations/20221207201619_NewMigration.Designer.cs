@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Ecommerce.Infrastructure.Migrations
 {
     [DbContext(typeof(EcommerceDbContext))]
-    [Migration("20221206230116_AddAccessLevelTable")]
-    partial class AddAccessLevelTable
+    [Migration("20221207201619_NewMigration")]
+    partial class NewMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -119,100 +119,17 @@ namespace Ecommerce.Infrastructure.Migrations
                     b.ToTable("AspNetRoles", (string)null);
                 });
 
-            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Category+Order", b =>
+            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Category", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
-
-                    b.Property<string>("Country")
-                        .HasColumnType("text");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("text");
-
-                    b.Property<DateTimeOffset>("TimeCreated")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTimeOffset>("TimeUpdated")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<Guid>("TrackingId")
-                        .HasColumnType("uuid");
-
-                    b.Property<long>("UserId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Category+OrderItem", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
-
-                    b.Property<int>("Amount")
-                        .HasColumnType("integer");
-
-                    b.Property<long>("OrderId")
-                        .HasColumnType("bigint");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("double precision");
-
-                    b.Property<long>("ProductId")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTimeOffset>("TimeCreated")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTimeOffset>("TimeUpdated")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("OrderItems");
-                });
-
-            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Category+Product", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
-
-                    b.Property<long>("CategoryId")
-                        .HasColumnType("bigint");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("double precision");
-
-                    b.Property<int>("ProductCategory")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("ProductLogo")
-                        .HasColumnType("text");
-
-                    b.Property<int>("ProductType")
-                        .HasColumnType("integer");
-
                     b.Property<DateTimeOffset>("TimeCreated")
                         .HasColumnType("timestamp with time zone");
 
@@ -221,35 +138,7 @@ namespace Ecommerce.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Category+Seller", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
-
-                    b.Property<string>("FullName")
-                        .HasColumnType("text");
-
-                    b.Property<int>("GenderType")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("PictureUrl")
-                        .HasColumnType("text");
-
-                    b.Property<DateTimeOffset>("TimeCreated")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTimeOffset>("TimeUpdated")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Sellers");
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.EcommerceUser", b =>
@@ -337,6 +226,110 @@ namespace Ecommerce.Infrastructure.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Order", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Country")
+                        .HasColumnType("text");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("text");
+
+                    b.Property<DateTimeOffset>("TimeCreated")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTimeOffset>("TimeUpdated")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("TrackingId")
+                        .HasColumnType("uuid");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.OrderItem", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<long>("OrderId")
+                        .HasColumnType("bigint");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("double precision");
+
+                    b.Property<long>("ProductId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("SelectedAmount")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTimeOffset>("TimeCreated")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTimeOffset>("TimeUpdated")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderItems");
+                });
+
+            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Product", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<long>("CategoryId")
+                        .HasColumnType("bigint");
+
+                    b.Property<bool>("IsAvailable")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("double precision");
+
+                    b.Property<string>("ProductImage")
+                        .HasColumnType("text");
+
+                    b.Property<DateTimeOffset>("TimeCreated")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTimeOffset>("TimeUpdated")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Products");
+                });
+
             modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.ShoppingCartItem", b =>
                 {
                     b.Property<long>("Id")
@@ -345,13 +338,13 @@ namespace Ecommerce.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<int>("Amount")
-                        .HasColumnType("integer");
-
                     b.Property<long?>("OrderId")
                         .HasColumnType("bigint");
 
-                    b.Property<long?>("ProductId")
+                    b.Property<int>("SelectedAmount")
+                        .HasColumnType("integer");
+
+                    b.Property<long?>("ShoppingCardId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("ShoppingCartId")
@@ -367,7 +360,7 @@ namespace Ecommerce.Infrastructure.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ShoppingCardId");
 
                     b.ToTable("ShoppingCartItems");
                 });
@@ -475,22 +468,7 @@ namespace Ecommerce.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ProductSeller", b =>
-                {
-                    b.Property<long>("ProductsId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("SellersId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("ProductsId", "SellersId");
-
-                    b.HasIndex("SellersId");
-
-                    b.ToTable("ProductSeller");
-                });
-
-            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Category+Order", b =>
+            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Order", b =>
                 {
                     b.HasOne("Ecommerce.Infrastructure.Data.Entities.EcommerceUser", "User")
                         .WithMany()
@@ -501,15 +479,15 @@ namespace Ecommerce.Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Category+OrderItem", b =>
+            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.OrderItem", b =>
                 {
-                    b.HasOne("Ecommerce.Infrastructure.Data.Entities.Category+Order", "Order")
+                    b.HasOne("Ecommerce.Infrastructure.Data.Entities.Order", "Order")
                         .WithMany("OrderItems")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Ecommerce.Infrastructure.Data.Entities.Category+Product", "Product")
+                    b.HasOne("Ecommerce.Infrastructure.Data.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -520,15 +498,26 @@ namespace Ecommerce.Infrastructure.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Product", b =>
+                {
+                    b.HasOne("Ecommerce.Infrastructure.Data.Entities.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
             modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.ShoppingCartItem", b =>
                 {
-                    b.HasOne("Ecommerce.Infrastructure.Data.Entities.Category+Order", null)
-                        .WithMany("Items")
+                    b.HasOne("Ecommerce.Infrastructure.Data.Entities.Order", null)
+                        .WithMany("CartItems")
                         .HasForeignKey("OrderId");
 
-                    b.HasOne("Ecommerce.Infrastructure.Data.Entities.Category+Product", "Product")
+                    b.HasOne("Ecommerce.Infrastructure.Data.Entities.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductId");
+                        .HasForeignKey("ShoppingCardId");
 
                     b.Navigation("Product");
                 });
@@ -584,24 +573,14 @@ namespace Ecommerce.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ProductSeller", b =>
+            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Category", b =>
                 {
-                    b.HasOne("Ecommerce.Infrastructure.Data.Entities.Category+Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Ecommerce.Infrastructure.Data.Entities.Category+Seller", null)
-                        .WithMany()
-                        .HasForeignKey("SellersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Category+Order", b =>
+            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Order", b =>
                 {
-                    b.Navigation("Items");
+                    b.Navigation("CartItems");
 
                     b.Navigation("OrderItems");
                 });

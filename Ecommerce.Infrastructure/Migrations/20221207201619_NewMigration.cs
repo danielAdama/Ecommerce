@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Ecommerce.Infrastructure.Migrations
 {
-    public partial class AddAccessLevelTable : Migration
+    public partial class NewMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -98,40 +98,18 @@ namespace Ecommerce.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Products",
+                name: "Category",
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: true),
-                    Price = table.Column<double>(type: "double precision", nullable: false),
-                    ProductLogo = table.Column<string>(type: "text", nullable: true),
-                    ProductCategory = table.Column<int>(type: "integer", nullable: false),
-                    ProductType = table.Column<int>(type: "integer", nullable: false),
-                    CategoryId = table.Column<long>(type: "bigint", nullable: false),
                     TimeCreated = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     TimeUpdated = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Products", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Sellers",
-                columns: table => new
-                {
-                    Id = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    FullName = table.Column<string>(type: "text", nullable: true),
-                    GenderType = table.Column<int>(type: "integer", nullable: false),
-                    PictureUrl = table.Column<string>(type: "text", nullable: true),
-                    TimeCreated = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    TimeUpdated = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Sellers", x => x.Id);
+                    table.PrimaryKey("PK_Category", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -265,25 +243,26 @@ namespace Ecommerce.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductSeller",
+                name: "Products",
                 columns: table => new
                 {
-                    ProductsId = table.Column<long>(type: "bigint", nullable: false),
-                    SellersId = table.Column<long>(type: "bigint", nullable: false)
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "text", nullable: true),
+                    Price = table.Column<double>(type: "double precision", nullable: false),
+                    ProductImage = table.Column<string>(type: "text", nullable: true),
+                    CategoryId = table.Column<long>(type: "bigint", nullable: false),
+                    IsAvailable = table.Column<bool>(type: "boolean", nullable: false),
+                    TimeCreated = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
+                    TimeUpdated = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductSeller", x => new { x.ProductsId, x.SellersId });
+                    table.PrimaryKey("PK_Products", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProductSeller_Products_ProductsId",
-                        column: x => x.ProductsId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ProductSeller_Sellers_SellersId",
-                        column: x => x.SellersId,
-                        principalTable: "Sellers",
+                        name: "FK_Products_Category_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Category",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -294,7 +273,7 @@ namespace Ecommerce.Infrastructure.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Amount = table.Column<int>(type: "integer", nullable: false),
+                    SelectedAmount = table.Column<int>(type: "integer", nullable: false),
                     Price = table.Column<double>(type: "double precision", nullable: false),
                     ProductId = table.Column<long>(type: "bigint", nullable: false),
                     OrderId = table.Column<long>(type: "bigint", nullable: false),
@@ -324,8 +303,8 @@ namespace Ecommerce.Infrastructure.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    ProductId = table.Column<long>(type: "bigint", nullable: true),
-                    Amount = table.Column<int>(type: "integer", nullable: false),
+                    SelectedAmount = table.Column<int>(type: "integer", nullable: false),
+                    ShoppingCardId = table.Column<long>(type: "bigint", nullable: true),
                     ShoppingCartId = table.Column<string>(type: "text", nullable: true),
                     OrderId = table.Column<long>(type: "bigint", nullable: true),
                     TimeCreated = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
@@ -340,8 +319,8 @@ namespace Ecommerce.Infrastructure.Migrations
                         principalTable: "Orders",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_ShoppingCartItems_Products_ProductId",
-                        column: x => x.ProductId,
+                        name: "FK_ShoppingCartItems_Products_ShoppingCardId",
+                        column: x => x.ShoppingCardId,
                         principalTable: "Products",
                         principalColumn: "Id");
                 });
@@ -399,9 +378,9 @@ namespace Ecommerce.Infrastructure.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductSeller_SellersId",
-                table: "ProductSeller",
-                column: "SellersId");
+                name: "IX_Products_CategoryId",
+                table: "Products",
+                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ShoppingCartItems_OrderId",
@@ -409,9 +388,9 @@ namespace Ecommerce.Infrastructure.Migrations
                 column: "OrderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ShoppingCartItems_ProductId",
+                name: "IX_ShoppingCartItems_ShoppingCardId",
                 table: "ShoppingCartItems",
-                column: "ProductId");
+                column: "ShoppingCardId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -441,16 +420,10 @@ namespace Ecommerce.Infrastructure.Migrations
                 name: "OrderItems");
 
             migrationBuilder.DropTable(
-                name: "ProductSeller");
-
-            migrationBuilder.DropTable(
                 name: "ShoppingCartItems");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
-
-            migrationBuilder.DropTable(
-                name: "Sellers");
 
             migrationBuilder.DropTable(
                 name: "Orders");
@@ -460,6 +433,9 @@ namespace Ecommerce.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Category");
         }
     }
 }
