@@ -26,56 +26,112 @@ namespace Ecommerce.Infrastructure.Services.Infrastructure.Persistence
 
         public static void Seed(this ModelBuilder modelBuilder) 
         {
-            // modelBuilder.Entity<Category>()
-            //    .HasData(
-            //     new Seller { Id = 1, 
-            //         FullName = "Akachi Brown",
-            //         GenderType = Utilities.Enums.GenderTypeEnum.Male,
-            //         PictureUrl = "",
-            //         TimeCreated = DateTimeOffset.UtcNow,
-            //         TimeUpdated = DateTimeOffset.UtcNow
-            //     });
+            modelBuilder.Entity<Category>()
+               .HasData(
+                new Category
+                {
+                    Id = 1,
+                    Name = "Laptop",
+                    TimeCreated = DateTimeOffset.UtcNow,
+                    TimeUpdated = DateTimeOffset.UtcNow
+                },
+                new Category
+                {
+                    Id = 2,
+                    Name = "Phone",
+                    TimeCreated = DateTimeOffset.UtcNow,
+                    TimeUpdated = DateTimeOffset.UtcNow
+                });
 
-            //modelBuilder.Entity<Product>()
-            //     .HasData(
-            //     new Product
-            //     {
-            //         Id = 1,
-            //         Name = "Asus",
-            //         Price = 250.000,
-            //         //ProductCategory = Utilities.Enums.ProductCategoryEnum.Laptop,
-            //         ProductImage = "",
-            //         IsAvailable = true,
-            //         TimeUpdated = DateTimeOffset.UtcNow,
-            //         TimeCreated = DateTimeOffset.UtcNow
-            //     });
 
-            //modelBuilder.Entity<Order>()
-            //    .HasData(
-            //    new Order
-            //    {
-            //        Id = 1,
-            //        TrackingId = Guid.NewGuid(),
-            //        UserId = 2,
-            //        Country = "Nigeria",
-            //        PhoneNumber = "+23456734567802",
-            //        TimeUpdated = DateTimeOffset.UtcNow,
-            //        TimeCreated = DateTimeOffset.UtcNow
-            //    });
+            modelBuilder.Entity<Product>()
+                 .HasData(
+                 new Product
+                 {
+                     Id = 1,
+                     Name = "Asus",
+                     Price = 250.000,
+                     CategoryId = 1,
+                     //ProductImage = "",
+                     IsAvailable = true,
+                     TimeUpdated = DateTimeOffset.UtcNow,
+                     TimeCreated = DateTimeOffset.UtcNow
+                 },
+                 new Product 
+                 {
+                     Id = 2,
+                     Name = "Dell",
+                     Price = 350.000,
+                     CategoryId = 1,
+                     //ProductImage = "",
+                     IsAvailable = true,
+                     TimeUpdated = DateTimeOffset.UtcNow,
+                     TimeCreated = DateTimeOffset.UtcNow
+                 },
+                 new Product
+                 {
+                     Id = 3,
+                     Name = "MacBook",
+                     Price = 550.000,
+                     CategoryId = 1,
+                     //ProductImage = "",
+                     IsAvailable = false,
+                     TimeUpdated = DateTimeOffset.UtcNow,
+                     TimeCreated = DateTimeOffset.UtcNow
+                 },
+                 new Product
+                 {
+                     Id = 4,
+                     Name = "IPhone11",
+                     Price = 350.000,
+                     CategoryId = 2,
+                     //ProductImage = "",
+                     IsAvailable = false,
+                     TimeUpdated = DateTimeOffset.UtcNow,
+                     TimeCreated = DateTimeOffset.UtcNow
+                 });
+
+
+            modelBuilder.Entity<Order>()
+                .HasData(
+                new Order
+                {
+                    Id = 1,
+                    TrackingId = Guid.NewGuid(),
+                    UserId = "1",
+                    Country = "Nigeria",
+                    PhoneNumber = "+23456734567802",
+                    TimeUpdated = DateTimeOffset.UtcNow,
+                    TimeCreated = DateTimeOffset.UtcNow
+                });
 
 
             //modelBuilder.Entity<OrderItem>()
-            //    .HasKey(k => new { k.ProductId, k.OrderId });
-            //modelBuilder.Entity<OrderItem>()
-            //    .HasData(
-            //    new OrderItem
-            //    {
-            //        Id = 1,
-            //        SelectedAmount = 2,
-            //        Price = 500.000,
-            //        TimeUpdated = DateTimeOffset.UtcNow,
-            //        TimeCreated = DateTimeOffset.UtcNow
-            //    });
+             //   .HasKey(k => new { k.ProductId, k.OrderId });
+            modelBuilder.Entity<OrderItem>()
+                .HasData(
+                new OrderItem
+                {
+                    Id = 1,
+                    Quantity = 2,
+                    Price = 900.000,
+                    //ProductId = 3,
+                    OrderId = 1,
+                    TimeUpdated = DateTimeOffset.UtcNow,
+                    TimeCreated = DateTimeOffset.UtcNow
+                });
+
+            modelBuilder.Entity<ShoppingCartItem>()
+                .HasData(
+                new ShoppingCartItem
+                {
+                    Id = 1,
+                    ShoppingCartId = "21",
+                    ProductId = 1,
+                    Quantity = 2,
+                    TimeUpdated = DateTimeOffset.UtcNow,
+                    TimeCreated = DateTimeOffset.UtcNow
+                });
         }
     }
 }

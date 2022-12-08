@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Ecommerce.Infrastructure.Migrations
 {
     [DbContext(typeof(EcommerceDbContext))]
-    [Migration("20221207201619_NewMigration")]
-    partial class NewMigration
+    [Migration("20221207225328_ChangeUserIdTypeToString")]
+    partial class ChangeUserIdTypeToString
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -138,7 +138,7 @@ namespace Ecommerce.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.EcommerceUser", b =>
@@ -249,12 +249,7 @@ namespace Ecommerce.Infrastructure.Migrations
                     b.Property<Guid>("TrackingId")
                         .HasColumnType("uuid");
 
-                    b.Property<long>("UserId")
-                        .HasColumnType("bigint");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Orders");
                 });
@@ -338,9 +333,6 @@ namespace Ecommerce.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<long?>("OrderId")
-                        .HasColumnType("bigint");
-
                     b.Property<int>("SelectedAmount")
                         .HasColumnType("integer");
 
@@ -357,8 +349,6 @@ namespace Ecommerce.Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("OrderId");
 
                     b.HasIndex("ShoppingCardId");
 
@@ -468,17 +458,6 @@ namespace Ecommerce.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Order", b =>
-                {
-                    b.HasOne("Ecommerce.Infrastructure.Data.Entities.EcommerceUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.OrderItem", b =>
                 {
                     b.HasOne("Ecommerce.Infrastructure.Data.Entities.Order", "Order")
@@ -511,10 +490,6 @@ namespace Ecommerce.Infrastructure.Migrations
 
             modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.ShoppingCartItem", b =>
                 {
-                    b.HasOne("Ecommerce.Infrastructure.Data.Entities.Order", null)
-                        .WithMany("CartItems")
-                        .HasForeignKey("OrderId");
-
                     b.HasOne("Ecommerce.Infrastructure.Data.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ShoppingCardId");
@@ -580,8 +555,6 @@ namespace Ecommerce.Infrastructure.Migrations
 
             modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Order", b =>
                 {
-                    b.Navigation("CartItems");
-
                     b.Navigation("OrderItems");
                 });
 #pragma warning restore 612, 618

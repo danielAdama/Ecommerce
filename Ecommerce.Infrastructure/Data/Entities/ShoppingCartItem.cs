@@ -10,12 +10,15 @@ namespace Ecommerce.Infrastructure.Data.Entities
     public class ShoppingCartItem : BaseEntity
     {
 #nullable disable
-        public int SelectedAmount { get; set; }
+        public int Quantity { get; set; }
+
+
+        [ForeignKey("ProductId")]
+        public Product Product { get; set; }
+        public long ProductId { get; set; } //FK
 
 
         // Shopping cartId of a product 
-        [ForeignKey("ShoppingCardId")]
-        public Product Product { get; set; }
         public string ShoppingCartId { get; set; } //FK
 
 

@@ -137,6 +137,22 @@ namespace Ecommerce.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Name = "Laptop",
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9691), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9695), new TimeSpan(0, 0, 0, 0, 0))
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            Name = "Phone",
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9697), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9698), new TimeSpan(0, 0, 0, 0, 0))
+                        });
                 });
 
             modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.EcommerceUser", b =>
@@ -247,14 +263,24 @@ namespace Ecommerce.Infrastructure.Migrations
                     b.Property<Guid>("TrackingId")
                         .HasColumnType("uuid");
 
-                    b.Property<long>("UserId")
-                        .HasColumnType("bigint");
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
-
                     b.ToTable("Orders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Country = "Nigeria",
+                            PhoneNumber = "+23456734567802",
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9883), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9883), new TimeSpan(0, 0, 0, 0, 0)),
+                            TrackingId = new Guid("c9d0367a-315c-4c38-ae21-e6c0621f0215"),
+                            UserId = "1"
+                        });
                 });
 
             modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.OrderItem", b =>
@@ -271,10 +297,7 @@ namespace Ecommerce.Infrastructure.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("double precision");
 
-                    b.Property<long>("ProductId")
-                        .HasColumnType("bigint");
-
-                    b.Property<int>("SelectedAmount")
+                    b.Property<int>("Quantity")
                         .HasColumnType("integer");
 
                     b.Property<DateTimeOffset>("TimeCreated")
@@ -287,9 +310,18 @@ namespace Ecommerce.Infrastructure.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.HasIndex("ProductId");
-
                     b.ToTable("OrderItems");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            OrderId = 1L,
+                            Price = 900.0,
+                            Quantity = 2,
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9899), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9899), new TimeSpan(0, 0, 0, 0, 0))
+                        });
                 });
 
             modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Product", b =>
@@ -326,6 +358,48 @@ namespace Ecommerce.Infrastructure.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            CategoryId = 1L,
+                            IsAvailable = true,
+                            Name = "Asus",
+                            Price = 250.0,
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9834), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9833), new TimeSpan(0, 0, 0, 0, 0))
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            CategoryId = 1L,
+                            IsAvailable = true,
+                            Name = "Dell",
+                            Price = 350.0,
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9835), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9835), new TimeSpan(0, 0, 0, 0, 0))
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            CategoryId = 1L,
+                            IsAvailable = false,
+                            Name = "MacBook",
+                            Price = 550.0,
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9836), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9836), new TimeSpan(0, 0, 0, 0, 0))
+                        },
+                        new
+                        {
+                            Id = 4L,
+                            CategoryId = 2L,
+                            IsAvailable = false,
+                            Name = "IPhone11",
+                            Price = 350.0,
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9840), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9840), new TimeSpan(0, 0, 0, 0, 0))
+                        });
                 });
 
             modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.ShoppingCartItem", b =>
@@ -336,14 +410,11 @@ namespace Ecommerce.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<long?>("OrderId")
+                    b.Property<long>("ProductId")
                         .HasColumnType("bigint");
 
-                    b.Property<int>("SelectedAmount")
+                    b.Property<int>("Quantity")
                         .HasColumnType("integer");
-
-                    b.Property<long?>("ShoppingCardId")
-                        .HasColumnType("bigint");
 
                     b.Property<string>("ShoppingCartId")
                         .HasColumnType("text");
@@ -356,11 +427,20 @@ namespace Ecommerce.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("ShoppingCardId");
+                    b.HasIndex("ProductId");
 
                     b.ToTable("ShoppingCartItems");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            ProductId = 1L,
+                            Quantity = 2,
+                            ShoppingCartId = "21",
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9921), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9920), new TimeSpan(0, 0, 0, 0, 0))
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<long>", b =>
@@ -466,17 +546,6 @@ namespace Ecommerce.Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Order", b =>
-                {
-                    b.HasOne("Ecommerce.Infrastructure.Data.Entities.EcommerceUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.OrderItem", b =>
                 {
                     b.HasOne("Ecommerce.Infrastructure.Data.Entities.Order", "Order")
@@ -485,15 +554,7 @@ namespace Ecommerce.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Ecommerce.Infrastructure.Data.Entities.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Order");
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Product", b =>
@@ -509,13 +570,11 @@ namespace Ecommerce.Infrastructure.Migrations
 
             modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.ShoppingCartItem", b =>
                 {
-                    b.HasOne("Ecommerce.Infrastructure.Data.Entities.Order", null)
-                        .WithMany("CartItems")
-                        .HasForeignKey("OrderId");
-
                     b.HasOne("Ecommerce.Infrastructure.Data.Entities.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ShoppingCardId");
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Product");
                 });
@@ -578,8 +637,6 @@ namespace Ecommerce.Infrastructure.Migrations
 
             modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Order", b =>
                 {
-                    b.Navigation("CartItems");
-
                     b.Navigation("OrderItems");
                 });
 #pragma warning restore 612, 618

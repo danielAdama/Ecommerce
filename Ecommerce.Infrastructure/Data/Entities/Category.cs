@@ -39,16 +39,17 @@ namespace Ecommerce.Infrastructure.Data.Entities
     {
 #nullable disable
         public Guid TrackingId { get; set; }
-        
 
-        [ForeignKey(nameof(UserId))]
-        public EcommerceUser User { get; set; }
+
+        //[ForeignKey(nameof(UserId))]
+        //public EcommerceUser User { get; set; }
         // A user can have many orders
-        public long UserId { get; set; } // FK
+        public string? UserId { get; set; }
+        //public long UserId { get; set; } // FK UserId for the user that orders for product
 
 
         // One-to-many relationship: there are items in different cart
-        public ICollection<ShoppingCartItem> CartItems { get; set; }
+        //public ICollection<ShoppingCartItem> CartItems { get; set; } // do not uncomment this
         public string Country { get; set; }
         public string PhoneNumber { get; set; }
         public ICollection<OrderItem> OrderItems { get; set; } // list of items in an order
@@ -57,14 +58,14 @@ namespace Ecommerce.Infrastructure.Data.Entities
     public class OrderItem : BaseEntity
     {
 #nullable disable
-        public int SelectedAmount { get; set; }
+        public int Quantity { get; set; }
         public double Price { get; set; }
 
 
         
-        [ForeignKey("ProductId")]
-        public Product Product { get; set; }
-        public long ProductId { get; set; } //FK
+        //[ForeignKey("ProductId")]
+        //public Product Product { get; set; }
+        //public long ProductId { get; set; } //FK
 
 
         [ForeignKey("OrderId")]
