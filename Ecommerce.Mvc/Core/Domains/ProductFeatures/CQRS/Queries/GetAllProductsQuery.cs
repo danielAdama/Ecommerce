@@ -13,17 +13,14 @@ namespace Ecommerce.Mvc.Core.Domains.ProductFeatures.CQRS.Queries
         {
             private readonly EcommerceDbContext _context;
             private readonly ILogger<GetAllProductsQueryHandler> _logger;
-            private readonly UserManager<EcommerceUser> _userManager;
 
             public GetAllProductsQueryHandler(
                 EcommerceDbContext context,
-                ILogger<GetAllProductsQueryHandler> logger,
-                UserManager<EcommerceUser> userManager
+                ILogger<GetAllProductsQueryHandler> logger
             )
             {
                 _context = context;
                 _logger = logger;
-                _userManager = userManager;
             }
 
             public async Task<BaseResponse> Handle(GetAllProductsQuery query, CancellationToken cancellationToken)

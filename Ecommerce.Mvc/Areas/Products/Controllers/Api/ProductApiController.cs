@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Ecommerce.Mvc.Core.Domains.ProductFeatures.CQRS.Queries;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Ecommerce.Mvc.Core.Domains.Accounts.CQRS.Commands.Login;
+using Ecommerce.Mvc.Core.Domains.ProductFeatures.CQRS.Commands;
 
 namespace Ecommerce.Mvc.Areas.Products.Controllers.Api
 {
@@ -38,6 +40,34 @@ namespace Ecommerce.Mvc.Areas.Products.Controllers.Api
             return Ok(response);
         }
 
+        [Route("CreateProduct")]
+        [HttpPost]
+        public async Task<IActionResult> CreateProduct([FromBody] CreateProductCommand command)
+        {
+            return Ok(new { Status = true, Message = "Working", Data = command });
+            //var response = await _sender.Send(command);
+            //if (!response.Status) return BadRequest(response);
+            //return Ok(response);
+        }
 
+        [Route("UpdateProduct")]
+        [HttpPut]
+        public async Task<IActionResult> UpdateProduct([FromBody] UpdateProductCommand command)
+        {
+            return Ok(new { Status = true, Message = "Working", Data = command });
+            //var response = await _sender.Send(command);
+            //if (!response.Status) return BadRequest(response);
+            //return Ok(response);
+        }
+
+        [Route("DeleteProductById")]
+        [HttpDelete]
+        public async Task<IActionResult> DeleteProductById([FromBody] DeleteProductByIdCommand command)
+        {
+            return Ok(new { Status = true, Message = "Working", Data = command });
+            //var response = await _sender.Send(command);
+            //if (!response.Status) return BadRequest(response);
+            //return Ok(response);
+        }
     }
 }
