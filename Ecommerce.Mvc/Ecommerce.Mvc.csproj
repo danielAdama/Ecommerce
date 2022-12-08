@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Core\Domains\Accounts\CQRS\Queries\Product\" />
+    <Folder Include="Areas\Products\Views\" />
   </ItemGroup>
 
 </Project>
