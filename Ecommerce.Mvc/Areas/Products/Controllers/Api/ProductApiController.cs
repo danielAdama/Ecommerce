@@ -66,11 +66,11 @@ namespace Ecommerce.Mvc.Areas.Products.Controllers.Api
         [HttpPut]
         public async Task<IActionResult> UpdateProduct([FromRoute] long id, [FromBody] UpdateProductCommand command)
         {
-            if (id != command.Id) return BadRequest();
-            //var query = new UpdateProductCommand
-            //{
-            //    Id = id,
-            //};
+            var query = new UpdateProductCommand
+            {
+                Id = id,
+            };
+            command.Id = query.Id;
             var response = await _sender.Send(command);
             if (!response.Status) return BadRequest(response);
             return Ok(response);
