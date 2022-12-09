@@ -1,4 +1,5 @@
 ﻿using Ecommerce.Infrastructure.Data.Entities;
+using Ecommerce.Infrastructure.Utilities.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,14 +32,14 @@ namespace Ecommerce.Infrastructure.Services.Infrastructure.Persistence
                 new Category
                 {
                     Id = 1,
-                    Name = "Laptop",
+                    ProductCategory = (ProductCategoryEnum)1,
                     TimeCreated = DateTimeOffset.UtcNow,
                     TimeUpdated = DateTimeOffset.UtcNow
                 },
                 new Category
                 {
                     Id = 2,
-                    Name = "Phone",
+                    ProductCategory = (ProductCategoryEnum)2,
                     TimeCreated = DateTimeOffset.UtcNow,
                     TimeUpdated = DateTimeOffset.UtcNow
                 });

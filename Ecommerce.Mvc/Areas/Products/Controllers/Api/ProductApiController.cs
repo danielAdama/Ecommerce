@@ -40,6 +40,18 @@ namespace Ecommerce.Mvc.Areas.Products.Controllers.Api
             return Ok(response);
         }
 
+        [Route("SearchForProductByNameQuery/{search}")]
+        public async Task<IActionResult> SearchForProductByNameQuery([FromRoute] string search)
+        {
+            var query = new SearchForProductByNameQuery
+            {
+                search = search
+            };
+            var response = await _sender.Send(query);
+            if (!response.Status) return BadRequest(response);
+            return Ok(response);
+        }
+
         [Route("CreateProduct")]
         [HttpPost]
         public async Task<IActionResult> CreateProduct([FromBody] CreateProductCommand command)
@@ -50,14 +62,18 @@ namespace Ecommerce.Mvc.Areas.Products.Controllers.Api
             //return Ok(response);
         }
 
-        [Route("UpdateProduct")]
+        [Route("UpdateProduct/{id}")]
         [HttpPut]
-        public async Task<IActionResult> UpdateProduct([FromBody] UpdateProductCommand command)
+        public async Task<IActionResult> UpdateProduct([FromRoute] long id, [FromBody] UpdateProductCommand command)
         {
-            return Ok(new { Status = true, Message = "Working", Data = command });
-            //var response = await _sender.Send(command);
-            //if (!response.Status) return BadRequest(response);
-            //return Ok(response);
+            if (id != command.Id) return BadRequest();
+            //var query = new UpdateProductCommand
+            //{
+            //    Id = id,
+            //};
+            var response = await _sender.Send(command);
+            if (!response.Status) return BadRequest(response);
+            return Ok(response);
         }
 
         [Route("DeleteProductById")]

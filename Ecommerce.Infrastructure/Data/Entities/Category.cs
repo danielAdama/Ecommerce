@@ -11,7 +11,7 @@ namespace Ecommerce.Infrastructure.Data.Entities
     public class Category : BaseEntity
     {  // We need the category table just incase we have new categories tomorrow
 #nullable disable
-        public string Name { get; set; }
+        public ProductCategoryEnum ProductCategory { get; set; }
         // One-to-many relationship: there are items in different category
         public ICollection<Product> Products { get; set; }
     }

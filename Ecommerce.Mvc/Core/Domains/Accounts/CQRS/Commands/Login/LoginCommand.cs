@@ -47,7 +47,8 @@ namespace Ecommerce.Mvc.Core.Domains.Accounts.CQRS.Commands.Login
         {
             try
             {
-                var user = await _userManager.FindByEmailAsync(request.EmailAddress);
+                string email = request.EmailAddress.Trim().ToLower();
+                var user = await _userManager.FindByEmailAsync(email);
                 if (user != null)
                 {
                     var passwordCheck = await _userManager.CheckPasswordAsync(user, request.Password);
