@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Ecommerce.Mvc.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\css\\EcommerceV.css",
+      "PackagePath": "staticwebassets\\css\\EcommerceV.css"
+    },
+    {
       "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\css\\LoginV.css",
       "PackagePath": "staticwebassets\\css\\LoginV.css"
     },
@@ -13,12 +17,96 @@
       "PackagePath": "staticwebassets\\css\\RegisterV.css"
     },
     {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\css\\bootsrap-sandstone.css",
+      "PackagePath": "staticwebassets\\css\\bootsrap-sandstone.css"
+    },
+    {
       "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\background.jpg",
+      "PackagePath": "staticwebassets\\img\\background.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\brand1.png",
+      "PackagePath": "staticwebassets\\img\\brand1.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\brand2.png",
+      "PackagePath": "staticwebassets\\img\\brand2.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\brand3.png",
+      "PackagePath": "staticwebassets\\img\\brand3.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\brand4.png",
+      "PackagePath": "staticwebassets\\img\\brand4.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\brand5.png",
+      "PackagePath": "staticwebassets\\img\\brand5.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\brand6.png",
+      "PackagePath": "staticwebassets\\img\\brand6.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\fea1.jpg",
+      "PackagePath": "staticwebassets\\img\\fea1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\fea2.jpg",
+      "PackagePath": "staticwebassets\\img\\fea2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\fea3.jpg",
+      "PackagePath": "staticwebassets\\img\\fea3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\fea4.jpg",
+      "PackagePath": "staticwebassets\\img\\fea4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\fea5.jpg",
+      "PackagePath": "staticwebassets\\img\\fea5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\fea6.jpg",
+      "PackagePath": "staticwebassets\\img\\fea6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\ffffc.png",
+      "PackagePath": "staticwebassets\\img\\ffffc.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\tren1.jpg",
+      "PackagePath": "staticwebassets\\img\\tren1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\tren2.jpg",
+      "PackagePath": "staticwebassets\\img\\tren2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\tren3.jpg",
+      "PackagePath": "staticwebassets\\img\\tren3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\tren4.jpg",
+      "PackagePath": "staticwebassets\\img\\tren4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\js\\login.js",
+      "PackagePath": "staticwebassets\\js\\login.js"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\js\\scripts.js",
+      "PackagePath": "staticwebassets\\js\\scripts.js"
     },
     {
       "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\js\\site.js",

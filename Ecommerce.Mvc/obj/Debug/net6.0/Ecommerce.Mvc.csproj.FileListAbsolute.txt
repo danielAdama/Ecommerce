@@ -832,3 +832,4 @@ C:\Users\DELL\Desktop\programming\softwareEng\Ecommerce\Ecommerce\Ecommerce.Mvc\
 C:\Users\DELL\Desktop\programming\softwareEng\Ecommerce\Ecommerce\Ecommerce.Mvc\obj\Debug\net6.0\Ecommerce.Mvc.pdb
 C:\Users\DELL\Desktop\programming\softwareEng\Ecommerce\Ecommerce\Ecommerce.Mvc\obj\Debug\net6.0\Ecommerce.Mvc.genruntimeconfig.cache
 C:\Users\DELL\Desktop\programming\softwareEng\Ecommerce\Ecommerce\Ecommerce.Mvc\obj\Debug\net6.0\ref\Ecommerce.Mvc.dll
+C:\Users\DELL\Desktop\programming\softwareEng\Ecommerce\Ecommerce\Ecommerce.Mvc\obj\Debug\net6.0\scopedcss\Views\Shared\Products\_Layout.cshtml.rz.scp.css
