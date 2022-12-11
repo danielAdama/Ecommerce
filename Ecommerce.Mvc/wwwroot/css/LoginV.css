@@ -42,7 +42,7 @@ body {
     margin-bottom: 5px
 }
 
-.login form input[type="submit"] {
+.login form button[id="loginbtn"] {
     font-size: 11px;
     margin-top: 5px;
     margin-right: 15px;

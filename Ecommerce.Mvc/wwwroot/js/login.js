@@ -6,50 +6,17 @@
 
 // Tasks
 //Collect data from form
+
+
 const loginEmailAddress = document.getElementById('EmailAddress')
 const loginPassWord = document.getElementById('PassWord')
 const loginbtn = document.getElementById('loginbtn')
+//const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/
+//const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
 
-//console.log(loginEmailAddress.value)
-
-//function validateLoginDetails() {
-//    alert("Testing")
-    //if (loginEmailAddress && loginPassWord) {
-    //    let passed = true;
-    //    if (loginEmailAddress === "") {
-    //        loginEmailAddress.classList.add('text-danger');
-    //        loginEmailAddress.innerHTML = "Email or username is required.";
-    //        passed = false;
-    //    }
-    //    if (loginPassWord === "") {
-    //        loginPassWord.classList.add('text-danger');
-    //        loginPassWord.innerHTML = "Password is required";
-    //        passed = false;
-    //    }
-    //    if (passed === false) {
-    //        return false;
-    //    }
-        //window.location.href = "https://www.securedrecords.com";
-    //}
-//}
-
-// Confirm email and password when loginbtn (login button is clicked)
-loginbtn.addEventListener("click", function () {
-    if ((loginEmailAddress && loginPassWord) === true) {
-        return alert("true")
+loginbtn.addEventListener('click', () => {
+    if (loginEmailAddress.value !== "" && loginPassWord.value !== "") {
+        console.log(loginEmailAddress.value)
     }
-    //let passed = true;
-    //if (loginEmailAddress.value === "") {
-    //    loginEmailAddress.classList.add('text-danger');
-    //    loginEmailAddress.innerHTML = "Email or username is required.";
-    //    passed = false;
-    //    return alert("email")
-    //}
-    //if (loginPassWord.value === "") {
-    //    loginPassWord.classList.add('text-danger');
-    //    loginPassWord.innerHTML = "Email or username is required.";
-    //    passed = false;
-    //    return alert("password")
-    //}
+})
 
-});
