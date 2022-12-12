@@ -58,26 +58,19 @@ namespace Ecommerce.Mvc.Core.Domains.ProductFeatures.CQRS.Commands
                 try
                 {
                     if (await _context.Products.AnyAsync(x => x.Name.Equals(request.ProductName)) && 
-                        await _context.Products.AnyAsync(x => x.Price.Equals(request.Price)) && 
-                        await _context.Categories.AnyAsync(x => x.ProductCategory.Equals(request.ProductCategory)))
+                        await _context.Products.AnyAsync(x => x.Price.Equals(request.Price)))
                     {
                         _logger.LogInformation($"CreateProductCommand => The product {request.ProductName} of price {request.Price} and {request.ProductCategory} exists");
                         return new BaseResponse(false, "Email address is already in use");
                     }
                     if (request.ProductName != null && request.Price != 0)
                     {
-                        var category = new Category
-                        {
-                            ProductCategory = (ProductCategoryEnum)(int)request.ProductCategory
-                        };
-                        Console.WriteLine(category);
-                        await _context.Categories.AddAsync(category, cancellationToken);
-                        await _context.SaveChangesAsync(cancellationToken);
+                        
                         var productDetails = new Product
                         {
                             Name = request.ProductName,
                             Price = request.Price,
-                            CategoryId = ((long)category.ProductCategory),
+                            ProductCategory = request.ProductCategory,
                             IsAvailable = request.IsAvailable,
                             TimeCreated = DateTime.UtcNow,
                             TimeUpdated = DateTime.UtcNow,

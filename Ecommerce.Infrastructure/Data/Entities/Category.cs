@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.Infrastructure.Data.Entities
 {
-    public class Category : BaseEntity
-    {  // We need the category table just incase we have new categories tomorrow
-#nullable disable
-        public ProductCategoryEnum ProductCategory { get; set; }
-        // One-to-many relationship: there are items in different category
-        public ICollection<Product> Products { get; set; }
-    }
+//    public class Category : BaseEntity
+//    {  // We need the category table just incase we have new categories tomorrow
+//#nullable disable
+//        public ProductCategoryEnum ProductCategory { get; set; }
+//        // One-to-many relationship: there are items in different category
+//        public ICollection<Product> Products { get; set; }
+//    }
 
     public class Product : BaseEntity
     {
@@ -25,9 +25,9 @@ namespace Ecommerce.Infrastructure.Data.Entities
         
 
         // One-to-one relationship: Each item belong to a category
-        [ForeignKey("CategoryId")]
-        public Category Category { get; set; }
-        public long CategoryId { get; set; } //FK
+        //[ForeignKey("CategoryId")]
+        public ProductCategoryEnum ProductCategory { get; set; } //FK
+        //public long CategoryId { get; set; } 
 
 
         public bool IsAvailable { get; set; }
@@ -41,11 +41,11 @@ namespace Ecommerce.Infrastructure.Data.Entities
         public Guid TrackingId { get; set; }
 
 
-        //[ForeignKey(nameof(UserId))]
-        //public EcommerceUser User { get; set; }
+        //[ForeignKey("EcommerceUser")]
         // A user can have many orders
         public string? UserId { get; set; }
         //public long UserId { get; set; } // FK UserId for the user that orders for product
+        //public EcommerceUser? User { get; set; }
 
 
         // One-to-many relationship: there are items in different cart
@@ -62,10 +62,10 @@ namespace Ecommerce.Infrastructure.Data.Entities
         public double Price { get; set; }
 
 
-        
-        //[ForeignKey("ProductId")]
-        //public Product Product { get; set; }
-        //public long ProductId { get; set; } //FK
+
+        [ForeignKey("ProductId")]
+        public Product Product { get; set; }
+        public long ProductId { get; set; } //FK
 
 
         [ForeignKey("OrderId")]

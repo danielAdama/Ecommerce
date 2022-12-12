@@ -29,6 +29,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\apple.jpg",
+      "PackagePath": "staticwebassets\\img\\apple.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\asus.png",
+      "PackagePath": "staticwebassets\\img\\asus.png"
+    },
+    {
       "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\background.jpg",
       "PackagePath": "staticwebassets\\img\\background.jpg"
     },
@@ -55,6 +63,10 @@
     {
       "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\brand6.png",
       "PackagePath": "staticwebassets\\img\\brand6.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\dell.jpg",
+      "PackagePath": "staticwebassets\\img\\dell.jpg"
     },
     {
       "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\fea1.jpg",
@@ -85,6 +97,18 @@
       "PackagePath": "staticwebassets\\img\\ffffc.png"
     },
     {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\hp.png",
+      "PackagePath": "staticwebassets\\img\\hp.png"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\iphone.jpg",
+      "PackagePath": "staticwebassets\\img\\iphone.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\razer-blade.jpg",
+      "PackagePath": "staticwebassets\\img\\razer-blade.jpg"
+    },
+    {
       "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\tren1.jpg",
       "PackagePath": "staticwebassets\\img\\tren1.jpg"
     },
@@ -99,6 +123,10 @@
     {
       "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\img\\tren4.jpg",
       "PackagePath": "staticwebassets\\img\\tren4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\js\\allproducts.js",
+      "PackagePath": "staticwebassets\\js\\allproducts.js"
     },
     {
       "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\js\\login.js",

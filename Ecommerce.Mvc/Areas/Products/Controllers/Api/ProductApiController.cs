@@ -23,7 +23,7 @@ namespace Ecommerce.Mvc.Areas.Products.Controllers.Api
             //return Ok(new { Status = true, Message = "Working"});
             var query = new GetAllProductsQuery();
             var response = await _sender.Send(query);
-            if (!response.Status) return BadRequest(response);
+            //if (!response.Status) return BadRequest(response);
             return Ok(response);
         }
 
@@ -56,10 +56,10 @@ namespace Ecommerce.Mvc.Areas.Products.Controllers.Api
         [HttpPost]
         public async Task<IActionResult> CreateProduct([FromBody] CreateProductCommand command)
         {
-            return Ok(new { Status = true, Message = "Working", Data = command });
-            //var response = await _sender.Send(command);
-            //if (!response.Status) return BadRequest(response);
-            //return Ok(response);
+            //return Ok(new { Status = true, Message = "Working", Data = command });
+            var response = await _sender.Send(command);
+            if (!response.Status) return BadRequest(response);
+            return Ok(response);
         }
 
         [Route("UpdateProduct/{id}")]

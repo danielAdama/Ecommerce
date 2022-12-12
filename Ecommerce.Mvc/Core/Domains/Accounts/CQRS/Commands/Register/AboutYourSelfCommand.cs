@@ -20,7 +20,7 @@ namespace Ecommerce.Mvc.Core.Domains.Accounts.CQRS.Commands.Register
         public string EmailAddress { get; set; }
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
-        public string Country { get; set; }
+        //public string Country { get; set; }
     }
 
     public class AboutYourSelfCommandValidator : AbstractValidator<AboutYourSelfCommand>
@@ -32,7 +32,7 @@ namespace Ecommerce.Mvc.Core.Domains.Accounts.CQRS.Commands.Register
             RuleFor(x => x.EmailAddress).NotNull().NotEmpty().EmailAddress();
             RuleFor(x => x.Password).NotNull().NotEmpty();
             RuleFor(x => x.ConfirmPassword).NotNull().NotEmpty();
-            RuleFor(x => x.Country).NotNull().NotEmpty();
+            //RuleFor(x => x.Country).NotNull().NotEmpty();
         }
 
     }
@@ -72,12 +72,10 @@ namespace Ecommerce.Mvc.Core.Domains.Accounts.CQRS.Commands.Register
                 using var transaction = await _context.Database.BeginTransactionAsync(cancellationToken);
                 try
                 {
-                    //var countryOfOrder = new Order
+                    //var countryoforder = new order
                     //{
-                    //    Country = request.Country
+                    //    country = request.country
                     //};
-                    //await _context.Orders.AddAsync(countryOfOrder, cancellationToken);
-                    //await _context.SaveChangesAsync(cancellationToken);
 
                     var newUser = new EcommerceUser
                     {

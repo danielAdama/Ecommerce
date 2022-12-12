@@ -11,6 +11,13 @@ body {
     justify-content:center;
     background:0
 }
+
+.reg {
+    font-size: 10px;
+    margin-top: 25px;
+    margin-left: 100px;
+}
+
 .register {
     width:393px;
     height:min-content;

@@ -19,8 +19,11 @@ namespace Ecommerce.Infrastructure.Utilities.Enums
     {
         Laptop = 1,
         Phone,
+        Shorts,
+        Jacket,
         Shirt,
-        Trouser
+        Trouser,
+        SweatPants
     }
 
     public enum GenderTypeEnum

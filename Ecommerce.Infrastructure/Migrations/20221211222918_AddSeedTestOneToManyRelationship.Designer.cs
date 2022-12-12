@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Ecommerce.Infrastructure.Migrations
 {
     [DbContext(typeof(EcommerceDbContext))]
-    [Migration("20221208085718_AddSeedTestOneToManyRelationship")]
+    [Migration("20221211222918_AddSeedTestOneToManyRelationship")]
     partial class AddSeedTestOneToManyRelationship
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -117,44 +117,6 @@ namespace Ecommerce.Infrastructure.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
-                });
-
-            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Category", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
-
-                    b.Property<string>("Name")
-                        .HasColumnType("text");
-
-                    b.Property<DateTimeOffset>("TimeCreated")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTimeOffset>("TimeUpdated")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            Name = "Laptop",
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9691), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9695), new TimeSpan(0, 0, 0, 0, 0))
-                        },
-                        new
-                        {
-                            Id = 2L,
-                            Name = "Phone",
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9697), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9698), new TimeSpan(0, 0, 0, 0, 0))
-                        });
                 });
 
             modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.EcommerceUser", b =>
@@ -278,9 +240,9 @@ namespace Ecommerce.Infrastructure.Migrations
                             Id = 1L,
                             Country = "Nigeria",
                             PhoneNumber = "+23456734567802",
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9883), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9883), new TimeSpan(0, 0, 0, 0, 0)),
-                            TrackingId = new Guid("c9d0367a-315c-4c38-ae21-e6c0621f0215"),
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7953), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7953), new TimeSpan(0, 0, 0, 0, 0)),
+                            TrackingId = new Guid("fc493acc-625e-4874-ae4a-d113ec8e991b"),
                             UserId = "1"
                         });
                 });
@@ -299,6 +261,9 @@ namespace Ecommerce.Infrastructure.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("double precision");
 
+                    b.Property<long>("ProductId")
+                        .HasColumnType("bigint");
+
                     b.Property<int>("Quantity")
                         .HasColumnType("integer");
 
@@ -312,6 +277,8 @@ namespace Ecommerce.Infrastructure.Migrations
 
                     b.HasIndex("OrderId");
 
+                    b.HasIndex("ProductId");
+
                     b.ToTable("OrderItems");
 
                     b.HasData(
@@ -320,9 +287,10 @@ namespace Ecommerce.Infrastructure.Migrations
                             Id = 1L,
                             OrderId = 1L,
                             Price = 900.0,
+                            ProductId = 3L,
                             Quantity = 2,
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9899), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9899), new TimeSpan(0, 0, 0, 0, 0))
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7975), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7974), new TimeSpan(0, 0, 0, 0, 0))
                         });
                 });
 
@@ -334,9 +302,6 @@ namespace Ecommerce.Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
-                    b.Property<long>("CategoryId")
-                        .HasColumnType("bigint");
-
                     b.Property<bool>("IsAvailable")
                         .HasColumnType("boolean");
 
@@ -345,6 +310,9 @@ namespace Ecommerce.Infrastructure.Migrations
 
                     b.Property<double>("Price")
                         .HasColumnType("double precision");
+
+                    b.Property<int>("ProductCategory")
+                        .HasColumnType("integer");
 
                     b.Property<string>("ProductImage")
                         .HasColumnType("text");
@@ -357,50 +325,98 @@ namespace Ecommerce.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
                     b.ToTable("Products");
 
                     b.HasData(
                         new
                         {
                             Id = 1L,
-                            CategoryId = 1L,
                             IsAvailable = true,
                             Name = "Asus",
                             Price = 250.0,
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9834), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9833), new TimeSpan(0, 0, 0, 0, 0))
+                            ProductCategory = 1,
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7662), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7658), new TimeSpan(0, 0, 0, 0, 0))
                         },
                         new
                         {
                             Id = 2L,
-                            CategoryId = 1L,
                             IsAvailable = true,
                             Name = "Dell",
                             Price = 350.0,
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9835), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9835), new TimeSpan(0, 0, 0, 0, 0))
+                            ProductCategory = 1,
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7665), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7664), new TimeSpan(0, 0, 0, 0, 0))
                         },
                         new
                         {
                             Id = 3L,
-                            CategoryId = 1L,
                             IsAvailable = false,
                             Name = "MacBook",
                             Price = 550.0,
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9836), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9836), new TimeSpan(0, 0, 0, 0, 0))
+                            ProductCategory = 1,
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7668), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7667), new TimeSpan(0, 0, 0, 0, 0))
                         },
                         new
                         {
                             Id = 4L,
-                            CategoryId = 2L,
                             IsAvailable = false,
                             Name = "IPhone11",
                             Price = 350.0,
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9840), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9840), new TimeSpan(0, 0, 0, 0, 0))
+                            ProductCategory = 2,
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7670), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7669), new TimeSpan(0, 0, 0, 0, 0))
+                        },
+                        new
+                        {
+                            Id = 5L,
+                            IsAvailable = true,
+                            Name = "Shirt",
+                            Price = 60.0,
+                            ProductCategory = 5,
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7672), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7671), new TimeSpan(0, 0, 0, 0, 0))
+                        },
+                        new
+                        {
+                            Id = 6L,
+                            IsAvailable = false,
+                            Name = "Jacket",
+                            Price = 35.0,
+                            ProductCategory = 4,
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7674), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7673), new TimeSpan(0, 0, 0, 0, 0))
+                        },
+                        new
+                        {
+                            Id = 7L,
+                            IsAvailable = true,
+                            Name = "Sweat Pants",
+                            Price = 30.0,
+                            ProductCategory = 7,
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7675), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7675), new TimeSpan(0, 0, 0, 0, 0))
+                        },
+                        new
+                        {
+                            Id = 8L,
+                            IsAvailable = true,
+                            Name = "Trouser",
+                            Price = 25.0,
+                            ProductCategory = 6,
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7677), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7677), new TimeSpan(0, 0, 0, 0, 0))
+                        },
+                        new
+                        {
+                            Id = 9L,
+                            IsAvailable = false,
+                            Name = "Shorts",
+                            Price = 50.0,
+                            ProductCategory = 3,
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7679), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7679), new TimeSpan(0, 0, 0, 0, 0))
                         });
                 });
 
@@ -440,8 +456,8 @@ namespace Ecommerce.Infrastructure.Migrations
                             ProductId = 1L,
                             Quantity = 2,
                             ShoppingCartId = "21",
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9921), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 8, 8, 57, 18, 185, DateTimeKind.Unspecified).AddTicks(9920), new TimeSpan(0, 0, 0, 0, 0))
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7998), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7997), new TimeSpan(0, 0, 0, 0, 0))
                         });
                 });
 
@@ -556,18 +572,15 @@ namespace Ecommerce.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Order");
-                });
-
-            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Product", b =>
-                {
-                    b.HasOne("Ecommerce.Infrastructure.Data.Entities.Category", "Category")
-                        .WithMany("Products")
-                        .HasForeignKey("CategoryId")
+                    b.HasOne("Ecommerce.Infrastructure.Data.Entities.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Category");
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.ShoppingCartItem", b =>
@@ -630,11 +643,6 @@ namespace Ecommerce.Infrastructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Category", b =>
-                {
-                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("Ecommerce.Infrastructure.Data.Entities.Order", b =>

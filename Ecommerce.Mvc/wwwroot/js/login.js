@@ -16,7 +16,24 @@ const loginbtn = document.getElementById('loginbtn')
 
 loginbtn.addEventListener('click', () => {
     if (loginEmailAddress.value !== "" && loginPassWord.value !== "") {
-        console.log(loginEmailAddress.value)
+        let data = {
+            "EmailAddress": loginEmailAddress.value,
+            "Password": loginPassWord.value
+        }
+        fetch("https://localhost:7183/api/Accounts/Identity/Login",
+            {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: {
+                    "Content-Type":"application/json"
+                    }
+            })
+            .then(resp => {
+                console.log(resp.status)
+                if (resp.status === 200) {
+                    window.location.href = "https://localhost:7183/Products/Product"
+                }
+            })
+            .catch(console.log('Something went wrong'))
     }
 })
-

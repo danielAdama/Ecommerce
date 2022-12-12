@@ -7,16 +7,6 @@
 <div class="login">
     <div class = "text-center">
         <h1>Login</h1>
-      @*  @if (TempData["RegisteredUser"] != null)
-        {
-            <h5>@TempData["RegisteredUser"]</h5>
-        }
-        <h1>Log In</h1>
-        @if (Convert.ToBoolean(TempData["LoggedUser"]) == false && Convert.ToBoolean(TempData["TriedOnce"] == "yes"))
-        {
-            <p>Username or Password not matched, please log in again or register</p>
-            <a class="" asp-action="Register" asp-controller="Accounts">register</a>
-        }*@
         <form asp-action="Login">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group was-validated">
