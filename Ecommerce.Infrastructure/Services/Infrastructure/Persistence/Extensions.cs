@@ -217,7 +217,8 @@ namespace Ecommerce.Infrastructure.Services.Infrastructure.Persistence
                 new ShoppingCartItem
                 {
                     Id = 1,
-                    ShoppingCartId = "21",
+                    //ShoppingCartId = "21",
+                    TotalPrice = 900.000,
                     ProductId = 1,
                     Quantity = 2,
                     TimeUpdated = DateTimeOffset.UtcNow,

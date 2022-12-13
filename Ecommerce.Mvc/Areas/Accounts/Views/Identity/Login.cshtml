@@ -7,24 +7,20 @@
 <div class="login">
     <div class = "text-center">
         <h1>Login</h1>
-        <form asp-action="Login">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group was-validated">
+        <form asp-action="Login" class="row g-3 needs-validation" novalidate>
+            <div>
                 <label for="EmailAddress" class="control-label">Email Address</label>
                 <input type="email" id="EmailAddress" for="EmailAddress" class="form-control" placeholder="janedoe@exmaple.com" required>
-                <span validation-for="EmailAddress" class="text-danger"></span><i class="bi bi-check-circle"></i>
-                <small id="loginEmailAddress"></small>
                 <div class="invalid-feedback">
-                    Please enter your Email Address
+                    Please provide a valid Email Address.
                 </div>
             </div>
-            <div class="form-group was-validated">
+            <div>
                 <label for="PassWord" class="control-label">Password</label>
                 <input type="password" id = "PassWord" for="PassWord" class="form-control" required>
-               <span validation-for="PassWord" class="text-danger"></span>
                 <small id="loginPassword"></small>
                 <div class="invalid-feedback">
-                    Please enter your Password
+                    Please provide a valid your Password.
                 </div>
             </div>
             <div class="form-group form-check">
