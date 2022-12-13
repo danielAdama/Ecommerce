@@ -9,5 +9,20 @@ namespace Ecommerce.Mvc.Areas.Products.Controllers
         {
             return View();
         }
-    }
+
+        public IActionResult Display1()
+        {
+            return View();
+        }
+
+		public IActionResult Display2()
+		{
+			return View();
+		}
+
+		public IActionResult Display3()
+		{
+			return View();
+		}
+	}
 }

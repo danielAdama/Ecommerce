@@ -36,7 +36,7 @@ namespace Ecommerce.Mvc.Areas.Products.Controllers.Api
                 productId = productId
             };
             var response = await _sender.Send(query);
-            if (!response.Status) return BadRequest(response);
+            //if (!response.Status) return BadRequest(response);
             return Ok(response);
         }
 

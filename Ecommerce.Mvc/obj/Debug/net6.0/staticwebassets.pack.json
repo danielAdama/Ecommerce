@@ -133,6 +133,10 @@
       "PackagePath": "staticwebassets\\js\\login.js"
     },
     {
+      "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\js\\productsById.js",
+      "PackagePath": "staticwebassets\\js\\productsById.js"
+    },
+    {
       "Id": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\js\\register.js",
       "PackagePath": "staticwebassets\\js\\register.js"
     },

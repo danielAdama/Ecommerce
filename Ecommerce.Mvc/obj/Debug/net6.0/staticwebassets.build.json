@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "53GO7+POWmbF6dTNZnlWP870nMqqVBZtGaDF7xOrOR0=",
+  "Hash": "Km9KcAt2ZSn3pRbKYriTT5VRANKq4g1Dc8u4UrlmjDQ=",
   "Source": "Ecommerce.Mvc",
   "BasePath": "_content/Ecommerce.Mvc",
   "Mode": "Default",
@@ -593,6 +593,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\login.js"
+    },
+    {
+      "Identity": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\js\\productsById.js",
+      "SourceId": "Ecommerce.Mvc",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\",
+      "BasePath": "_content/Ecommerce.Mvc",
+      "RelativePath": "js/productsById.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\productsById.js"
     },
     {
       "Identity": "C:\\Users\\DELL\\Desktop\\programming\\softwareEng\\Ecommerce\\Ecommerce\\Ecommerce.Mvc\\wwwroot\\js\\register.js",
