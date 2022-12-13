@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Ecommerce.Infrastructure.Migrations
 {
-    public partial class AddSeedTestOneToManyRelationship : Migration
+    public partial class AddSeedData : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -34,6 +34,10 @@ namespace Ecommerce.Infrastructure.Migrations
                 table: "ShoppingCartItems");
 
             migrationBuilder.DropColumn(
+                name: "ShoppingCartId",
+                table: "ShoppingCartItems");
+
+            migrationBuilder.DropColumn(
                 name: "CategoryId",
                 table: "Products");
 
@@ -54,6 +58,13 @@ namespace Ecommerce.Infrastructure.Migrations
                 nullable: false,
                 defaultValue: 0L);
 
+            migrationBuilder.AddColumn<double>(
+                name: "TotalPrice",
+                table: "ShoppingCartItems",
+                type: "double precision",
+                nullable: false,
+                defaultValue: 0.0);
+
             migrationBuilder.AddColumn<int>(
                 name: "ProductCategory",
                 table: "Products",
@@ -70,33 +81,33 @@ namespace Ecommerce.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "Orders",
                 columns: new[] { "Id", "Country", "PhoneNumber", "TimeCreated", "TimeUpdated", "TrackingId", "UserId" },
-                values: new object[] { 1L, "Nigeria", "+23456734567802", new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7953), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7953), new TimeSpan(0, 0, 0, 0, 0)), new Guid("fc493acc-625e-4874-ae4a-d113ec8e991b"), "1" });
+                values: new object[] { 1L, "Nigeria", "+23456734567802", new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6974), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6973), new TimeSpan(0, 0, 0, 0, 0)), new Guid("d58f2b7b-51a5-458d-b553-002b022b0a94"), "1" });
 
             migrationBuilder.InsertData(
                 table: "Products",
                 columns: new[] { "Id", "IsAvailable", "Name", "Price", "ProductCategory", "ProductImage", "TimeCreated", "TimeUpdated" },
                 values: new object[,]
                 {
-                    { 1L, true, "Asus", 250.0, 1, null, new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7662), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7658), new TimeSpan(0, 0, 0, 0, 0)) },
-                    { 2L, true, "Dell", 350.0, 1, null, new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7665), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7664), new TimeSpan(0, 0, 0, 0, 0)) },
-                    { 3L, false, "MacBook", 550.0, 1, null, new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7668), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7667), new TimeSpan(0, 0, 0, 0, 0)) },
-                    { 4L, false, "IPhone11", 350.0, 2, null, new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7670), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7669), new TimeSpan(0, 0, 0, 0, 0)) },
-                    { 5L, true, "Shirt", 60.0, 5, null, new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7672), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7671), new TimeSpan(0, 0, 0, 0, 0)) },
-                    { 6L, false, "Jacket", 35.0, 4, null, new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7674), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7673), new TimeSpan(0, 0, 0, 0, 0)) },
-                    { 7L, true, "Sweat Pants", 30.0, 7, null, new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7675), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7675), new TimeSpan(0, 0, 0, 0, 0)) },
-                    { 8L, true, "Trouser", 25.0, 6, null, new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7677), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7677), new TimeSpan(0, 0, 0, 0, 0)) },
-                    { 9L, false, "Shorts", 50.0, 3, null, new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7679), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7679), new TimeSpan(0, 0, 0, 0, 0)) }
+                    { 1L, true, "Asus", 250.0, 1, null, new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6718), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6715), new TimeSpan(0, 0, 0, 0, 0)) },
+                    { 2L, true, "Dell", 350.0, 1, null, new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6719), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6719), new TimeSpan(0, 0, 0, 0, 0)) },
+                    { 3L, false, "MacBook", 550.0, 1, null, new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6721), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6720), new TimeSpan(0, 0, 0, 0, 0)) },
+                    { 4L, false, "IPhone11", 350.0, 2, null, new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6722), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6722), new TimeSpan(0, 0, 0, 0, 0)) },
+                    { 5L, true, "Shirt", 60.0, 5, null, new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6723), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6723), new TimeSpan(0, 0, 0, 0, 0)) },
+                    { 6L, false, "Jacket", 35.0, 4, null, new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6725), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6724), new TimeSpan(0, 0, 0, 0, 0)) },
+                    { 7L, true, "Sweat Pants", 30.0, 7, null, new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6726), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6725), new TimeSpan(0, 0, 0, 0, 0)) },
+                    { 8L, true, "Trouser", 25.0, 6, null, new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6728), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6727), new TimeSpan(0, 0, 0, 0, 0)) },
+                    { 9L, false, "Shorts", 50.0, 3, null, new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6729), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6728), new TimeSpan(0, 0, 0, 0, 0)) }
                 });
 
             migrationBuilder.InsertData(
                 table: "OrderItems",
                 columns: new[] { "Id", "OrderId", "Price", "ProductId", "Quantity", "TimeCreated", "TimeUpdated" },
-                values: new object[] { 1L, 1L, 900.0, 3L, 2, new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7975), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7974), new TimeSpan(0, 0, 0, 0, 0)) });
+                values: new object[] { 1L, 1L, 900.0, 3L, 2, new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6993), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6993), new TimeSpan(0, 0, 0, 0, 0)) });
 
             migrationBuilder.InsertData(
                 table: "ShoppingCartItems",
-                columns: new[] { "Id", "ProductId", "Quantity", "ShoppingCartId", "TimeCreated", "TimeUpdated" },
-                values: new object[] { 1L, 1L, 2, "21", new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7998), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7997), new TimeSpan(0, 0, 0, 0, 0)) });
+                columns: new[] { "Id", "ProductId", "Quantity", "TimeCreated", "TimeUpdated", "TotalPrice" },
+                values: new object[] { 1L, 1L, 2, new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(7008), new TimeSpan(0, 0, 0, 0, 0)), new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(7008), new TimeSpan(0, 0, 0, 0, 0)), 900.0 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ShoppingCartItems_ProductId",
@@ -187,6 +198,10 @@ namespace Ecommerce.Infrastructure.Migrations
                 table: "ShoppingCartItems");
 
             migrationBuilder.DropColumn(
+                name: "TotalPrice",
+                table: "ShoppingCartItems");
+
+            migrationBuilder.DropColumn(
                 name: "ProductCategory",
                 table: "Products");
 
@@ -208,6 +223,12 @@ namespace Ecommerce.Infrastructure.Migrations
                 name: "ShoppingCardId",
                 table: "ShoppingCartItems",
                 type: "bigint",
+                nullable: true);
+
+            migrationBuilder.AddColumn<string>(
+                name: "ShoppingCartId",
+                table: "ShoppingCartItems",
+                type: "text",
                 nullable: true);
 
             migrationBuilder.AddColumn<long>(

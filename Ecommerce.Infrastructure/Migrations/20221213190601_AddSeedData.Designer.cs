@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Ecommerce.Infrastructure.Migrations
 {
     [DbContext(typeof(EcommerceDbContext))]
-    [Migration("20221211222918_AddSeedTestOneToManyRelationship")]
-    partial class AddSeedTestOneToManyRelationship
+    [Migration("20221213190601_AddSeedData")]
+    partial class AddSeedData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -240,9 +240,9 @@ namespace Ecommerce.Infrastructure.Migrations
                             Id = 1L,
                             Country = "Nigeria",
                             PhoneNumber = "+23456734567802",
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7953), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7953), new TimeSpan(0, 0, 0, 0, 0)),
-                            TrackingId = new Guid("fc493acc-625e-4874-ae4a-d113ec8e991b"),
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6974), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6973), new TimeSpan(0, 0, 0, 0, 0)),
+                            TrackingId = new Guid("d58f2b7b-51a5-458d-b553-002b022b0a94"),
                             UserId = "1"
                         });
                 });
@@ -289,8 +289,8 @@ namespace Ecommerce.Infrastructure.Migrations
                             Price = 900.0,
                             ProductId = 3L,
                             Quantity = 2,
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7975), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7974), new TimeSpan(0, 0, 0, 0, 0))
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6993), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6993), new TimeSpan(0, 0, 0, 0, 0))
                         });
                 });
 
@@ -335,8 +335,8 @@ namespace Ecommerce.Infrastructure.Migrations
                             Name = "Asus",
                             Price = 250.0,
                             ProductCategory = 1,
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7662), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7658), new TimeSpan(0, 0, 0, 0, 0))
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6718), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6715), new TimeSpan(0, 0, 0, 0, 0))
                         },
                         new
                         {
@@ -345,8 +345,8 @@ namespace Ecommerce.Infrastructure.Migrations
                             Name = "Dell",
                             Price = 350.0,
                             ProductCategory = 1,
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7665), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7664), new TimeSpan(0, 0, 0, 0, 0))
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6719), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6719), new TimeSpan(0, 0, 0, 0, 0))
                         },
                         new
                         {
@@ -355,8 +355,8 @@ namespace Ecommerce.Infrastructure.Migrations
                             Name = "MacBook",
                             Price = 550.0,
                             ProductCategory = 1,
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7668), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7667), new TimeSpan(0, 0, 0, 0, 0))
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6721), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6720), new TimeSpan(0, 0, 0, 0, 0))
                         },
                         new
                         {
@@ -365,8 +365,8 @@ namespace Ecommerce.Infrastructure.Migrations
                             Name = "IPhone11",
                             Price = 350.0,
                             ProductCategory = 2,
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7670), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7669), new TimeSpan(0, 0, 0, 0, 0))
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6722), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6722), new TimeSpan(0, 0, 0, 0, 0))
                         },
                         new
                         {
@@ -375,8 +375,8 @@ namespace Ecommerce.Infrastructure.Migrations
                             Name = "Shirt",
                             Price = 60.0,
                             ProductCategory = 5,
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7672), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7671), new TimeSpan(0, 0, 0, 0, 0))
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6723), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6723), new TimeSpan(0, 0, 0, 0, 0))
                         },
                         new
                         {
@@ -385,8 +385,8 @@ namespace Ecommerce.Infrastructure.Migrations
                             Name = "Jacket",
                             Price = 35.0,
                             ProductCategory = 4,
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7674), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7673), new TimeSpan(0, 0, 0, 0, 0))
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6725), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6724), new TimeSpan(0, 0, 0, 0, 0))
                         },
                         new
                         {
@@ -395,8 +395,8 @@ namespace Ecommerce.Infrastructure.Migrations
                             Name = "Sweat Pants",
                             Price = 30.0,
                             ProductCategory = 7,
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7675), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7675), new TimeSpan(0, 0, 0, 0, 0))
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6726), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6725), new TimeSpan(0, 0, 0, 0, 0))
                         },
                         new
                         {
@@ -405,8 +405,8 @@ namespace Ecommerce.Infrastructure.Migrations
                             Name = "Trouser",
                             Price = 25.0,
                             ProductCategory = 6,
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7677), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7677), new TimeSpan(0, 0, 0, 0, 0))
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6728), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6727), new TimeSpan(0, 0, 0, 0, 0))
                         },
                         new
                         {
@@ -415,8 +415,8 @@ namespace Ecommerce.Infrastructure.Migrations
                             Name = "Shorts",
                             Price = 50.0,
                             ProductCategory = 3,
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7679), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7679), new TimeSpan(0, 0, 0, 0, 0))
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6729), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(6728), new TimeSpan(0, 0, 0, 0, 0))
                         });
                 });
 
@@ -434,14 +434,14 @@ namespace Ecommerce.Infrastructure.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("integer");
 
-                    b.Property<string>("ShoppingCartId")
-                        .HasColumnType("text");
-
                     b.Property<DateTimeOffset>("TimeCreated")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTimeOffset>("TimeUpdated")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("double precision");
 
                     b.HasKey("Id");
 
@@ -455,9 +455,9 @@ namespace Ecommerce.Infrastructure.Migrations
                             Id = 1L,
                             ProductId = 1L,
                             Quantity = 2,
-                            ShoppingCartId = "21",
-                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7998), new TimeSpan(0, 0, 0, 0, 0)),
-                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 29, 18, 249, DateTimeKind.Unspecified).AddTicks(7997), new TimeSpan(0, 0, 0, 0, 0))
+                            TimeCreated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(7008), new TimeSpan(0, 0, 0, 0, 0)),
+                            TimeUpdated = new DateTimeOffset(new DateTime(2022, 12, 13, 19, 6, 0, 764, DateTimeKind.Unspecified).AddTicks(7008), new TimeSpan(0, 0, 0, 0, 0)),
+                            TotalPrice = 900.0
                         });
                 });
 
